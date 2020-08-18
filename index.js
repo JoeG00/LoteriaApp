@@ -1,25 +1,41 @@
+
 function Cardgenerator(){
-    const card=[]
+    const cards=[]
+
     let currentnum= Math.floor((Math.random() * 54) + 1);
 
     for (i=0; i<16; i++){
         let currentnum= Math.floor((Math.random() * 54) + 1);
-        if (card.includes(currentnum)){
+        if (cards.includes(currentnum)){
             let newnum= Math.floor((Math.random() * 54) + 1);
-            card.push(newnum)
+            cards.push(newnum)
         }else{
-        card.push(currentnum)
+        cards.push(currentnum)
         }
 
     }
 
-    console.log(card)
+    console.log(cards)
 
 }
 
 function InsertImage(){
-    const imagediv= document.querySelector('.card-image')
-    img=document.createElement("img").setAttribute("src", "./loteria Cards")
+
+    const imagediv= document.getElementsByClassName('card-image')
+
+    for(i=0; i<=imagediv.length+1; i++){
+        let j=i+1
+        const img= document.createElement('img')
+        img.setAttribute("src", `./loteria Cards/${j}.jfif`)
+        j=j+1
+        imagediv[i].appendChild(img)
+
+    }
+
+
+
+
+    console.log(imagediv)
 
 }
 InsertImage()
