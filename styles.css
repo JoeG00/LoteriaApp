@@ -1,16 +1,29 @@
-.card-whole{
-    width: 100vh;
-    height: fit-content;
-    border:3px blue solid;
+body{
+    display: flex;
 
+    justify-content: center;
+    align-content: center;
+
+}
+.card-whole{
+    height: fit-content;
+    width:fit-content;
+
+    border:3px black solid;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-content: center;
 }
 .card-row{
     display: flex;
-    justify-content: space-between;
+
+
 }
 .card-image{
-    height: 33rem;
-    width:50rem;
+    height: 24.5vh;
+    width:20vh;
+
 
 }
 

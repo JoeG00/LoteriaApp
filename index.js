@@ -1,42 +1,75 @@
+class Card{
+    constructor(){
+        this.cards=[]
 
-function Cardgenerator(){
-    const cards=[]
+    }
 
-    let currentnum= Math.floor((Math.random() * 54) + 1);
 
-    for (i=0; i<16; i++){
-        let currentnum= Math.floor((Math.random() * 54) + 1);
-        if (cards.includes(currentnum)){
-            let newnum= Math.floor((Math.random() * 54) + 1);
-            cards.push(newnum)
-        }else{
-        cards.push(currentnum)
+
+    Cardgenerator(){
+        let unique= new Set(this.cards);
+
+
+        do{
+            let i= Math.floor((Math.random() * 54) + 1);
+
+            unique.add(i)
+
+        }
+        while((unique.size<16))
+
+        this.cards=unique
+        console.log(unique);
+
+
+ 
+
+
+
+
+
+    
+    }
+
+
+
+        InsertImage(){
+
+            let text=document.createTextNode('Hola')
+            let cardbody= document.createElement('div')
+            cardbody.setAttribute('class', 'card-whole')
+
+
+            let main =document.createElement('section')
+            let b= document.body.appendChild(main).appendChild(cardbody)
+            
+            this.cards.forEach(c=>{
+                let a=document.createElement('div')
+                a.setAttribute('class', 'card-row')
+        
+                
+                let imgcard=document.createElement('div')
+                imgcard.setAttribute('class', 'card-image')
+                const img= document.createElement('img')
+                imgcard.appendChild(img)
+                cardbody.appendChild(a)
+
+
+                a.appendChild(imgcard)
+
+
+
+                img.setAttribute("src", `./loteria Cards/${c}.jfif`)
+
+                
+            })
+
         }
 
-    }
 
-    console.log(cards)
+
 
 }
-
-function InsertImage(){
-
-    const imagediv= document.getElementsByClassName('card-image')
-
-    for(i=0; i<=imagediv.length+1; i++){
-        let j=i+1
-        const img= document.createElement('img')
-        img.setAttribute("src", `./loteria Cards/${j}.jfif`)
-        j=j+1
-        imagediv[i].appendChild(img)
-
-    }
-
-
-
-
-    console.log(imagediv)
-
-}
-InsertImage()
-Cardgenerator()
+let obj =new Card
+obj.Cardgenerator()
+obj.InsertImage()
