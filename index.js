@@ -17,4 +17,10 @@ function Cardgenerator(){
 
 }
 
+function InsertImage(){
+    const imagediv= document.querySelector('.card-image')
+    img=document.createElement("img").setAttribute("src", "./loteria Cards")
+
+}
+InsertImage()
 Cardgenerator()
